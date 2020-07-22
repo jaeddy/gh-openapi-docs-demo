@@ -1,1 +1,0 @@
-# gh-openapi-docs-demo

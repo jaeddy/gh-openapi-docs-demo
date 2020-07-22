@@ -1,0 +1,78 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Example.com
+  termsOfService: 'https://example.com/terms/'
+  contact:
+    email: contact@example.com
+    url: 'http://example.com/contact'
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+  x-logo:
+    url: 'https://www.openapis.org/wp-content/uploads/sites/3/2018/02/OpenAPI_Logo_Pantone-1.png'
+  description: >
+    This is an **example** API to demonstrate features of OpenAPI specification
+externalDocs:
+  description: Find out how to create Github repo for your OpenAPI spec.
+  url: 'https://github.com/Rebilly/generator-openapi-repo'
+servers:
+  - url: 'http://example.com/api/v1'
+  - url: 'https://example.com/api/v1'
+tags:
+  - name: Echo
+    description: Example echo operations
+  - name: User
+    description: Operations about user
+  - name: Introduction
+    description:
+      $ref: ./tags/introduction.md
+  - name: OpenAPI Specification
+    description:
+      $ref: ./tags/openapi_spec.md
+  - name: Path Files
+    description:
+      $ref: ./paths/README.md
+  - name: Component Files
+    description:
+      $ref: ./components/README.md
+  - name: Tag Files
+    description:
+      $ref: ./tags/README.md
+x-tagGroups:
+  - name: Overview
+    tags:
+      - Introduction
+      - OpenAPI Specification
+  - name: Operations
+    tags:
+      - Echo
+      - User
+  - name: Appendix
+    tags:
+      - Path Files
+      - Component Files
+      - Tag Files
+paths:
+  '/users/{username}':
+    $ref: ./paths/users@{username}.yaml
+  /echo:
+    $ref: ./paths/echo.yaml
+components:
+  headers:
+    ExpiresAfter:
+      $ref: ./components/headers/ExpiresAfter.yaml
+    Overview:
+      $ref: ./components/headers/Overview.yaml
+  schemas:
+    Email:
+      $ref: ./components/schemas/Email.yaml
+    User:
+      $ref: ./components/schemas/User.yaml
+  securitySchemes:
+    main_auth:
+      $ref: ./components/securitySchemes/main_auth.yaml
+    api_key:
+      $ref: ./components/securitySchemes/api_key.yaml
+    basic_auth:
+      $ref: ./components/securitySchemes/basic_auth.yaml
